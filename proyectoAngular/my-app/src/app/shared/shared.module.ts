@@ -1,15 +1,17 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { TitleComponent } from '../title/title.component';
-import { ContactComponent } from '../contact/contact.component';
-
+import { FormDogComponent } from './form-dog/form-dog.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
-  declarations: [TitleComponent, ContactComponent],
+  declarations: [
+    FormDogComponent
+  ],
   imports: [
     CommonModule,
+    ReactiveFormsModule
   ],
-  exports: [TitleComponent, ContactComponent]
+  exports: [FormDogComponent]
 })
 export class SharedModule { }

@@ -1,0 +1,14 @@
+.btn{
+    background-color: $secondary;
+    color: #fff;
+    padding: .8rem 1.8rem;
+    border: none;
+    transition: background-color .3 ease;
+    &:hover{
+        background-color: darken($color: $secondary, $amount: 2);
+        color: darken($color: white, $amount: 10);
+    }
+    &:focus{ 
+        box-shadow: none;
+    }
+}

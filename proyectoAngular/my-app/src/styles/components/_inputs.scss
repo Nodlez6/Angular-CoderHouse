@@ -1,0 +1,8 @@
+.form-control{
+
+    transition: border .3s ease;
+    &:focus{
+        box-shadow: none;
+        border: 1px solid $copper;
+    }
+}
