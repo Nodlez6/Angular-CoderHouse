@@ -1,20 +1,8 @@
 .form-check-input{
+    box-shadow: none;
     &:checked{
-        background-color: $dirt;
-        outline: 0;
+        background-color: $dirt;  
+        box-shadow: none;  
         border: none;
     }
-    &:focus{
-        outline: 0;
-        border: none;
-    }
-    &:select{
-        outline: 0;
-        border: none;
-    }
-    &:active{
-        outline: 0;
-        border: none;
-    }
-   
 }
