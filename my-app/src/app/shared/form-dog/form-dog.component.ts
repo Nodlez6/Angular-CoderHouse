@@ -25,15 +25,7 @@ export class FormDogComponent implements OnInit {
   }
 
   onSubmit(form: FormGroup){
-    let formDog: Dog = {
-      name: form.value.name,
-      age: form.value.age,
-      color: form.value.color,
-      breed: form.value.breed,
-      chip: form.value.chip,
-    };
-
-    console.log(formDog)
+    console.log(form.getRawValue())
     form.reset()
   }
 
