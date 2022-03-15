@@ -1,14 +1,14 @@
-.login__container{
+.register__container{
     background-image: linear-gradient(to right top, #f9e0ae, #d4b17f, #b08355, #8c572f, #682c0e);
     width: 100%;
     height: 100vh;
 
 }
 
-.login__card{
+.register__card{
     background-color: #FFEDDB;
-    width: 28rem;
-    height: 28rem;
+    width: 32rem;
+    height: 32rem;
     border-radius: 1rem;
     padding: 2rem;
     -webkit-box-shadow: 0px 0px 41px -18px #000000; 
@@ -19,18 +19,10 @@
     }
 }
 
-.login__input{
+.register__input{
     &:focus{
         &::placeholder{
             font-size: .9rem;
         }
-    }
-}
-
-.login__register{
-    color: black;
-
-    &:hover{
-        color: lighten($color: #000000, $amount: 25)
     }
 }

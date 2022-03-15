@@ -2,7 +2,9 @@
     background-color: $secondary;
     color: #fff;
     padding: .8rem 1.8rem;
+    font-weight: bold;
     border: none;
+    font-size: 1.1rem;
     transition: background-color .3 ease;
     &:hover{
         background-color: darken($color: $secondary, $amount: 2);
