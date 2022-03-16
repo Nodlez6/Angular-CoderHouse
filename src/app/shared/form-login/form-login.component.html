@@ -1,20 +1,20 @@
-<form class="h-100 d-flex flex-column justify-content-around">
+<form [formGroup]="formLogin" (ngSubmit)="handleSubmit(formLogin)" class="h-100 d-flex flex-column justify-content-around">
     <div class="d-flex justify-content-center">
-        <img src='../../../assets/dog.png'/>
+        <img src='../../../assets/logo.png'/>
     </div>
     
     <div>
         <div class="mb-3">
-            <input placeholder="Email" autocomplete="off"  type="text" class="form-control login__input" id="name" name="name">
+            <input formControlName="email" placeholder="Email" autocomplete="off"  type="text" class="form-control login__input" id="name" name="name">
           </div>
           <div class="mb-3">   
-              <input placeholder="Password" autocomplete="off" type="text" class="form-control login__input" id="age" name="age">
+              <input formControlName="password" placeholder="Password" autocomplete="off" type="text" class="form-control login__input" id="age" name="age">
           </div> 
     </div>
     <div class="w-100 d-flex justify-content-center">
         <a class="login__register" routerLink="/register">Register</a>
     </div>
-    <button routerLink='/home' type="submit" class="btn w-100 ">Login</button>
+    <button type="submit" class="btn w-100 ">Login</button>
 
   </form>
 
