@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { NgToastService } from 'ng-angular-popup';
 import { AuthService } from 'src/app/services/auth.service';
+import {Router} from "@angular/router"
 
 
 @Component({
@@ -13,7 +14,7 @@ export class FormLoginComponent implements OnInit {
 
   formLogin!: FormGroup
 
-  constructor(private fb: FormBuilder, private auth: AuthService, private toast: NgToastService) {
+  constructor(private fb: FormBuilder, private auth: AuthService, private toast: NgToastService, private routes: Router) {
     this.formLogin = this.fb.group({
       email: ['', [Validators.required, Validators.email]],
       password: ['', Validators.required]
@@ -21,15 +22,24 @@ export class FormLoginComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    console.log(this.auth.isLogged())
   }
 
   handleSubmit(form: FormGroup){
     this.auth.login(form.value.email, form.value.password).
     then((res) => {
-    }).
-    catch(() => {
-      this.toast.error({detail:'Error', summary: 'account created', position:'bl', duration: 4000});
-    });
+      if(res){
+        localStorage.setItem('email', JSON.stringify(form.value.email));
+        this.toast.success({detail:'Success', summary: 'successful login', position:'bl', duration: 4000});
+        this.routes.navigate(['/home']);
+
+      }
+      else{
+        this.toast.error({detail:'Error', summary: 'email or password invalid', position:'bl', duration: 4000});
+      }
+      
+    })
+   
   }
 
 }

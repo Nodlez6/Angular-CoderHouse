@@ -27,5 +27,13 @@ export class AuthService {
     }
   }
 
+  isLogged(): boolean{
+    return (localStorage.getItem('email')) ? true : false;  
+  };
+
+  singOut(){
+    this.auth.signOut();
+  }
+
 
 }
