@@ -1,23 +1,23 @@
-<form class="h-100 d-flex flex-column justify-content-around">
+<form [formGroup]="formRegister" (ngSubmit)="handleRegister(formRegister)" class="h-100 d-flex flex-column justify-content-around">
     <div class="d-flex justify-content-center">
         <img src='../../../assets/logo.png'/>
     </div>
     
     <div>
         <div class="mb-3">
-            <input placeholder="Name" autocomplete="off"  type="text" class="form-control login__input" id="name" name="name">
+            <input formControlName="email" placeholder="Email" autocomplete="off"  type="text" class="form-control login__input" id="email" name="email">
         </div>
         <div class="mb-3">
-            <input placeholder="Lastname" autocomplete="off"  type="text" class="form-control login__input" id="name" name="name">
+            <input formControlName="cemail" placeholder="Confirm email" autocomplete="off"  type="text" class="form-control login__input" id="cemail" name="cemail">
         </div>
         <div class="mb-3">
-            <input placeholder="Email" autocomplete="off"  type="text" class="form-control login__input" id="name" name="name">
+            <span class="c-danger" *ngIf="formRegister.get('password')!.errors?.['minlength']">Password must be at least 6 characters</span> 
+            <input formControlName="password" placeholder="Password" autocomplete="off" type="password" class="form-control login__input" id="password" name="password">
+            
         </div>
-        <div class="mb-3">   
-            <input placeholder="Password" autocomplete="off" type="text" class="form-control login__input" id="age" name="age">
-        </div>
-        <div class="mb-3">   
-            <input placeholder="Confirm password" autocomplete="off" type="text" class="form-control login__input" id="age" name="age">
+        <div class="mb-3">
+            <span class="c-danger" *ngIf="formRegister.get('cpassword')!.errors?.['minlength']">Password must be at least 6 characters</span> 
+            <input formControlName="cpassword" placeholder="Confirm password" autocomplete="off" type="password" class="form-control login__input" id="cpassword" name="cpassword">
         </div> 
     </div>
 
@@ -25,7 +25,7 @@
         <a class="login__register" routerLink="/login">Login</a>
     </div>
     
-    <button type="submit" class="btn w-100">Register</button>
+    <button type="submit" class="btn w-100" [disabled]="!formRegister.valid">Register</button>
 
 </form>
 

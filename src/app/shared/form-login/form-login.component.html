@@ -14,7 +14,7 @@
     <div class="w-100 d-flex justify-content-center">
         <a class="login__register" routerLink="/register">Register</a>
     </div>
-    <button type="submit" class="btn w-100 ">Login</button>
+    <button type="submit" class="btn w-100 " [disabled]="!formLogin.valid">Login</button>
 
   </form>
 

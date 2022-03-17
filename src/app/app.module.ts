@@ -7,8 +7,10 @@ import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
 import { HomeComponent } from './components/home/home.component';
 import { AppRoutingModule } from './app-routing.module';
-import { UsersService } from './services/users.service';
-
+import { AngularFireModule } from '@angular/fire/compat';
+import { environment } from 'src/environments/environment';
+import { AuthService } from './services/auth.service';
+import { NgToastModule } from 'ng-angular-popup';
 
 @NgModule({
   declarations: [
@@ -22,9 +24,11 @@ import { UsersService } from './services/users.service';
     BrowserModule,
     SharedModule,
     AppRoutingModule,
+    AngularFireModule.initializeApp(environment.firebaseConfig),
+    NgToastModule
     
   ],
-  providers: [UsersService],
+  providers: [AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
