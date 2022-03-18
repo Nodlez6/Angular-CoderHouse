@@ -30,12 +30,12 @@ export class FormLoginComponent implements OnInit {
     then((res) => {
       if(res){
         localStorage.setItem('email', JSON.stringify(form.value.email));
-        this.toast.success({detail:'Success', summary: 'successful login', position:'bl', duration: 4000});
+        this.toast.success({detail:'Success', summary: 'Successful login', position:'bl', duration: 4000});
         this.routes.navigate(['/home']);
 
       }
       else{
-        this.toast.error({detail:'Error', summary: 'email or password invalid', position:'bl', duration: 4000});
+        this.toast.error({detail:'Error', summary: 'Email or password invalid', position:'bl', duration: 4000});
       }
       
     })
