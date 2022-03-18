@@ -16,7 +16,7 @@ export class NavBarComponent implements OnInit {
 
   Logout(){
     this.auth.singOut();
-    this.auth.isLogged();
+    this.routes.navigate(['/login'])
   }
 
 }

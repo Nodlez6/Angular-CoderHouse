@@ -8,7 +8,6 @@ export class AuthService {
 
   constructor(private auth: AngularFireAuth) { }
 
-
   async login(email: string, password: string){
     try{
       return await this.auth.signInWithEmailAndPassword(email, password);
@@ -33,6 +32,7 @@ export class AuthService {
 
   singOut(){
     this.auth.signOut();
+    localStorage.removeItem('email');
   }
 
 
