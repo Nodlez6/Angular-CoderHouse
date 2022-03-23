@@ -1,7 +1,7 @@
 .form-check-input{
     box-shadow: none;
     &:checked{
-        background-color: $dirt;  
+        background-color: $secondary;  
         box-shadow: none;  
         border: none;
     }

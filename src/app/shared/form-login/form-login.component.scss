@@ -1,0 +1,20 @@
+.login__input{
+    &:focus{
+        &::placeholder{
+            font-size: .9rem;
+        }
+    }
+}
+
+.login__register{
+    color: black;
+
+    &:hover{
+        color: lighten($color: #000000, $amount: 25)
+    }
+}
+
+
+    img{
+        width: 6rem;
+    }

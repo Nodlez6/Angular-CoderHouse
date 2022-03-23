@@ -1,0 +1,11 @@
+<div class="card" routerLink="{{movieData.id}}" routerLinkActive="router-link-active" >
+    <img src="{{urlImg + movieData.backdrop_path}}"  alt="img_movie">
+    <div class="card-body">
+        <div class="d-flex justify-content-between">
+            <h5 class="card-title">{{ movieData.original_title}}</h5>
+            <p class="p__number"><span class="span__number">{{ movieData.vote_average }}</span> / 10</p>
+        </div>
+        <p class="title_release">Release date</p>
+        <p class="release_date">{{ movieData.release_date }}</p>
+    </div>
+</div>

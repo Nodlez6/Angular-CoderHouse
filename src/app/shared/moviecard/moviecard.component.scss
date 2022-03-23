@@ -1,0 +1,65 @@
+
+@import '../../../styles/setting';
+
+.card{
+    border: none;
+    width: 21rem;
+    height: 25rem;
+    border-radius: .3rem;
+   
+    transition: .3s ease;
+    cursor: pointer;
+    -webkit-box-shadow: 0px 0px 41px -18px #000000; 
+    box-shadow: 0px 0px 41px -18px #000000;
+    overflow: hidden;   
+    &:hover{
+        transform:scale(1.1);
+        border: none;
+        img{
+            
+            transition: .3s ease;
+            opacity: .9;
+            transform: scale(1.1);
+        }
+     
+    }
+
+    img{
+        height: 23rem;
+        border-top-left-radius: .3rem;
+        border-top-right-radius: .3rem;
+    }
+
+    
+}
+
+.span__number{
+    color: $secondary;
+    font-weight: bold;
+}
+
+.p__number{
+    font-weight: bold;
+}
+
+.card-body{
+           
+    padding-top: 2rem;
+}
+
+.card-title{
+    font-size: 1.4rem;
+    color: $secondary;
+}
+
+.title_release{
+    color: $secondary;
+    font-weight: 300;
+    margin: 0;
+}
+
+.release_date{
+    font-weight: 500;
+}
+
+

@@ -1,12 +1,11 @@
 /* You can add global styles to this file, and also import other style files */
 
-@import './base';
+
 
 @import './setting';
+@import './base';
 @import './components/buttons';
 @import './components/checkbox';
 @import './components/inputs';
 @import './components/formDog';
-@import './views/login';
-@import './views/register';
-@import './components/navBar';
+

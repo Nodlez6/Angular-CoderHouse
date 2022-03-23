@@ -7,6 +7,7 @@ import { FormRegisterComponent } from './form-register/form-register.component';
 import { RouterModule } from '@angular/router';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { NgToastModule } from 'ng-angular-popup';
+import { MoviecardComponent } from './moviecard/moviecard.component';
 
 
 @NgModule({
@@ -14,7 +15,8 @@ import { NgToastModule } from 'ng-angular-popup';
     FormDogComponent,
     FormLoginComponent,
     FormRegisterComponent,
-    NavBarComponent
+    NavBarComponent,
+    MoviecardComponent
   ],
   imports: [
     CommonModule,
@@ -22,6 +24,6 @@ import { NgToastModule } from 'ng-angular-popup';
     RouterModule.forChild([]),
     NgToastModule
   ],
-  exports: [FormDogComponent, FormLoginComponent, FormRegisterComponent, NavBarComponent]
+  exports: [FormDogComponent, FormLoginComponent, FormRegisterComponent, NavBarComponent, MoviecardComponent]
 })
 export class SharedModule { }

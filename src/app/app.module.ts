@@ -11,6 +11,10 @@ import { AngularFireModule } from '@angular/fire/compat';
 import { environment } from 'src/environments/environment';
 import { AuthService } from './services/auth.service';
 import { NgToastModule } from 'ng-angular-popup';
+import { MoviesComponent } from './components/movies/movies.component';
+import { HttpClientModule } from '@angular/common/http';
+import { MovieScreenComponent } from './components/movie-screen/movie-screen.component';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [
@@ -18,6 +22,8 @@ import { NgToastModule } from 'ng-angular-popup';
     LoginComponent,
     RegisterComponent,
     HomeComponent,
+    MoviesComponent,
+    MovieScreenComponent,
   ],
   imports: [
     ReactiveFormsModule,
@@ -25,7 +31,9 @@ import { NgToastModule } from 'ng-angular-popup';
     SharedModule,
     AppRoutingModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
-    NgToastModule
+    NgToastModule,
+    HttpClientModule,
+
     
   ],
   providers: [AuthService],

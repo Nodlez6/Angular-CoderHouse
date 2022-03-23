@@ -34,11 +34,11 @@ export class FormRegisterComponent implements OnInit {
     then((res) => {
       if(res){
       
-        this.toast.success({detail:'Success', summary: 'account created', position:'bl', duration: 4000});
+        this.toast.success({detail:'Success', summary: 'Account created', position:'bl', duration: 4000});
         this.routes.navigate(['/home']);
       }
       else{
-        this.toast.error({detail:'Error', summary: 'something went wrong', position:'bl', duration: 4000});
+        this.toast.error({detail:'Error', summary: 'Something went wrong', position:'bl', duration: 4000});
       }
       
     })
