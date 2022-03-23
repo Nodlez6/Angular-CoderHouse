@@ -1,15 +1,29 @@
 <app-nav-bar></app-nav-bar>
 <div class="movies__container">
 
-    <div class="container">
-      <div class="pt-5 pb-5">
-        <div class="row">
-          <div class="col-4 d-flex justify-content-center" *ngFor="let item of data">
-              <app-moviecard [url]="actualUrl" [movieData]="item"></app-moviecard>
-          </div>
-       </div>  
 
+
+    <div class="container">
+      <div *ngIf="data;else elseBlock">
+        <div class="pt-5 pb-5">
+          <div class="row">
+            <div class="col-4 d-flex justify-content-center" *ngFor="let item of data">
+                <app-moviecard [url]="actualUrl" [movieData]="item"></app-moviecard>
+            </div>
+         </div>  
+    
+        </div>
       </div>
+
+
+      <ng-template #elseBlock>
+        <div #elseBlock class="content-spinner">
+            <div class="spinner-border text-dark" role="status">
+                <span class="sr-only">Loading...</span>
+            </div>
+        </div>
+      </ng-template>
+      
       
     </div>
 
