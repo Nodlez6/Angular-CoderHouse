@@ -25,9 +25,19 @@
     display: flex;
     list-style: none;
     width: 100%;
-
+    align-items: center;
+    margin: 0;
     li{
        width: 100%;
+    }
+}
+
+.logout{
+    color: white;
+    font-size: 1.3rem;
+    cursor: pointer;
+    &:hover{
+        color: $secondary;
     }
 }
 
