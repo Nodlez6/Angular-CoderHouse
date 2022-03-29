@@ -1,4 +1,33 @@
 <app-nav-bar></app-nav-bar>
+<div class="container__initial">
+    <div class="container h-100">
+        <div class="row h-100">
+            <div class="col-5  movie-img d-flex justify-content-center align-items-center">
+             
+            </div>
+            <div class="col-7 title_movie">
+                <div class="h-100 d-flex flex-column justify-content-center ">
+                    <h3>{{ data.title }}</h3> 
+                    <p>{{ data.release_date }}</p>
+
+                    <p>{{ data.overview }}</p>
+                    <p>{{ data.original_language }}</p>
+                    <button type="submit" (click)="reserve()" class="btn w-100">Reserve</button>
+                </div>
+                
+
+              
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+</div>
+
+
 <div class="container">
 
     <div *ngIf="data;else elseBlock">

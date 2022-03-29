@@ -8,6 +8,7 @@ import { RouterModule } from '@angular/router';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { NgToastModule } from 'ng-angular-popup';
 import { MoviecardComponent } from './moviecard/moviecard.component';
+import { MovieCartComponent } from './movie-cart/movie-cart.component';
 
 
 @NgModule({
@@ -16,7 +17,8 @@ import { MoviecardComponent } from './moviecard/moviecard.component';
     FormLoginComponent,
     FormRegisterComponent,
     NavBarComponent,
-    MoviecardComponent
+    MoviecardComponent,
+    MovieCartComponent
   ],
   imports: [
     CommonModule,

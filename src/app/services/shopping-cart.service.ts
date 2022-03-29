@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { BehaviorSubject, Observable, observable } from 'rxjs';
 import { results } from '../interfaces/results';
 
 @Injectable({
@@ -6,7 +7,7 @@ import { results } from '../interfaces/results';
 })
 export class ShoppingCartService {
 
-  cart!: results[];
+  cart = new Observable<results[]>();
 
   constructor() { }
 
@@ -15,10 +16,7 @@ export class ShoppingCartService {
   }
 
   addItemToCart(item: results){
-    this.cart.push(item);
+    this.cart.subscribe(() => console.log('zxxz'))
   }
 
-  deleteItem(id: number){
-    this.cart.filter(item => item.id != id);
-  }
 }
