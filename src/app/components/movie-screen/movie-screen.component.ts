@@ -18,6 +18,7 @@ export class MovieScreenComponent implements OnInit, OnDestroy {
   data!: results;
   urlImg: string = environment.imgUrl;
 
+
   constructor(private route: ActivatedRoute, private apiService: MovieApiService, private cart: ShoppingCartService) { }
 
   ngOnInit(): void {
@@ -32,9 +33,12 @@ export class MovieScreenComponent implements OnInit, OnDestroy {
   }
 
   reserve(){
+    this.cart.addItemToCart(this.data)
+  }
 
-    this.cart.addItemToCart(this.data);
-    console.log("xd")
+  existInCart(){
+    console.log(!this.cart.existItem(this.data.id))
+    return this.cart.existItem(this.data.id);
   }
 
 }

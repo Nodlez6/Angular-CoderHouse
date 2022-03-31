@@ -42,3 +42,12 @@
 }
 
 
+.position-cart{
+    left: 90%;
+}
+
+.navbar-toggler{
+    &:focus{
+        box-shadow: none;
+    }
+}
