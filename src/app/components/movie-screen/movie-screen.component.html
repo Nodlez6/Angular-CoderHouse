@@ -2,16 +2,16 @@
 <div class="container__initial">
     <div class="container h-100">
         <div class="row h-100">
-            <div class="col-5  movie-img d-flex justify-content-center align-items-center">
-                <img src="{{urlImg + data.backdrop_path}}"  alt="img_movie">
+            <div class="col-lg-5  movie-img d-flex justify-content-center align-items-lg-center align-items-sm-end mt-5-mobile">
+                <img src="{{urlImg + data?.backdrop_path}}"  alt="img_movie">
             </div>
-            <div class="col-7 title_movie">
+            <div class="col-lg-7 title_movie">
                 <div class="h-100 d-flex flex-column justify-content-center ">
-                    <h3>{{ data.title }}</h3> 
-                    <p>{{ data.release_date }}</p>
+                    <h3>{{ data?.title }}</h3> 
+                    <p>{{ data?.release_date }}</p>
 
-                    <p>{{ data.overview }}</p>
-                    <p>{{ data.original_language }}</p>
+                    <p>{{ data?.overview }}</p>
+                    <p>{{ data?.original_language }}</p>
                     <button  type="submit" (click)="reserve()" class="btn w-100" [disabled]="existInCart()">Reserve</button>
                 </div>
                 
@@ -29,7 +29,6 @@
 
     <div *ngIf="data;else elseBlock">
         <div #thenBlock>
-            {{ data | json }}
         </div>
     </div>
 

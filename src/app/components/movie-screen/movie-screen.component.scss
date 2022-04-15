@@ -1,9 +1,15 @@
 .container__initial{
     background-color: #F0F3F4;
     width: 100%;
-    height: 30rem;
+    height: 100vh;
 
 }
 .movie-img img{
     width: 100%; 
+}
+
+@media (max-width: 900px){
+    .mt-5-mobile{
+        margin-top: 1rem ;
+    }
 }

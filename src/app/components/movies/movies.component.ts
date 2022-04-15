@@ -23,7 +23,6 @@ export class MoviesComponent implements OnInit, OnDestroy {
     this.actualUrl = this.route.url.slice(1, this.route.url.length);
     (this.actualUrl === 'toprated') ? this.actualUrl = 'top_rated' : this.actualUrl
     this.subscription = this.apiService.getData(this.actualUrl, 'movie').subscribe((dataApi: apiobject) => {
-      console.log(dataApi.results!)
       this.data = dataApi.results!;
     });
   }

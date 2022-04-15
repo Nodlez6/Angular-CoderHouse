@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormDogComponent } from './form-dog/form-dog.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { FormLoginComponent } from './form-login/form-login.component';
 import { FormRegisterComponent } from './form-register/form-register.component';
@@ -13,7 +12,6 @@ import { MovieCartComponent } from './movie-cart/movie-cart.component';
 
 @NgModule({
   declarations: [
-    FormDogComponent,
     FormLoginComponent,
     FormRegisterComponent,
     NavBarComponent,
@@ -26,6 +24,6 @@ import { MovieCartComponent } from './movie-cart/movie-cart.component';
     RouterModule.forChild([]),
     NgToastModule
   ],
-  exports: [FormDogComponent, FormLoginComponent, FormRegisterComponent, NavBarComponent, MoviecardComponent]
+  exports: [ FormLoginComponent, FormRegisterComponent, NavBarComponent, MoviecardComponent]
 })
 export class SharedModule { }

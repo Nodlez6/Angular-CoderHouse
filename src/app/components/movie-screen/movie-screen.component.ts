@@ -1,10 +1,13 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute, Router, Routes } from '@angular/router';
+import { Store } from '@ngrx/store';
 import { Subscription } from 'rxjs';
 import { results } from 'src/app/interfaces/results';
 import { MovieApiService } from 'src/app/services/movie-api.service';
 import { ShoppingCartService } from 'src/app/services/shopping-cart.service';
+import { AppState } from 'src/app/store/reducers/app.reducers';
 import { environment } from 'src/environments/environment';
+import * as actions from '../../store/actions/cart.actions'
 
 @Component({
   selector: 'app-movie-screen',
@@ -14,14 +17,19 @@ import { environment } from 'src/environments/environment';
 export class MovieScreenComponent implements OnInit, OnDestroy {
   subscriptionParams!: Subscription;
   subscriptionApi!: Subscription;
+  subscriptionRedux!: Subscription;
   id!: string;
   data!: results;
   urlImg: string = environment.imgUrl;
+  ReduxCart!: results[];
 
 
-  constructor(private route: ActivatedRoute, private apiService: MovieApiService, private cart: ShoppingCartService) { }
+  constructor(private route: ActivatedRoute, private apiService: MovieApiService, private cart: ShoppingCartService, private store: Store<AppState>) { }
 
   ngOnInit(): void {
+    this.subscriptionRedux = this.store.select('cart').subscribe({
+      next: (value) => this.ReduxCart = value,
+    })
     this.subscriptionParams = this.route.params.subscribe(data => this.id = data['id']);
     console.log(this.id)
     this.subscriptionApi = this.apiService.getDataById(this.id).subscribe((data: results) => this.data = data)
@@ -30,15 +38,15 @@ export class MovieScreenComponent implements OnInit, OnDestroy {
   ngOnDestroy(): void {
     this.subscriptionParams.unsubscribe();
     this.subscriptionApi.unsubscribe();
+    this.subscriptionRedux.unsubscribe();
   }
 
   reserve(){
-    this.cart.addItemToCart(this.data)
+    this.store.dispatch(actions.addToCart({ data: this.data}))
   }
 
   existInCart(){
-    console.log(!this.cart.existItem(this.data.id))
-    return this.cart.existItem(this.data.id);
+    return this.ReduxCart?.some(item => item.id === this.data.id)
   }
 
 }

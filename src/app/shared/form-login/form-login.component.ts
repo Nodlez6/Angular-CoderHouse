@@ -31,7 +31,7 @@ export class FormLoginComponent implements OnInit {
       if(res){
         localStorage.setItem('email', JSON.stringify(form.value.email));
         this.toast.success({detail:'Success', summary: 'Successful login', position:'bl', duration: 4000});
-        this.routes.navigate(['/home']);
+        this.routes.navigate(['/popular']);
 
       }
       else{

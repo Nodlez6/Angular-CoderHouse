@@ -32,6 +32,8 @@
     }
 }
 
+
+
 .logout{
     color: white;
     font-size: 1.3rem;
@@ -51,3 +53,26 @@
         box-shadow: none;
     }
 }
+
+@media (max-width: 992px){
+    .navbar-nav-custom{
+        display: flex;
+        flex-direction: column;
+        li {
+           display: flex;
+           justify-content: center; 
+        }
+    }
+
+    .logout{
+        width: 1.5rem;
+    }
+    
+ 
+    .position-cart{
+        top:70%;
+        left: 85%;
+    }
+}
+
+

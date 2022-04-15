@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { HomeComponent } from './components/home/home.component';
 import { LoginComponent } from './components/login/login.component';
 import { MovieScreenComponent } from './components/movie-screen/movie-screen.component';
 import { MoviesComponent } from './components/movies/movies.component';
@@ -9,13 +8,15 @@ import { AuthGuard } from './shared/auth.guard';
 import { LogoutGuard } from './shared/logout.guard';
 
 const routes: Routes = [
+
   {path: 'login', component: LoginComponent, canActivate: [LogoutGuard]},
+ 
   {path: 'register', component: RegisterComponent, canActivate: [LogoutGuard]},
-  {path: 'home', component: HomeComponent, canActivate: [AuthGuard]},
   {path: 'popular', component: MoviesComponent},
   {path: ':value/:id', component: MovieScreenComponent},
   {path: 'toprated', component: MoviesComponent, canActivate: [AuthGuard]},
   {path: 'upcoming', component: MoviesComponent, canActivate: [AuthGuard]},
+  {path: '**', redirectTo: 'popular'},
   {path: '**',redirectTo: '/login'}
 ];
 

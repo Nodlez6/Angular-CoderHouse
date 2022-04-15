@@ -1,7 +1,11 @@
 import { Component, Input, OnChanges, OnDestroy, OnInit, SimpleChanges } from '@angular/core';
+import { Store } from '@ngrx/store';
+import { Observable, Subscriber, Subscription } from 'rxjs';
 import { results } from 'src/app/interfaces/results';
 import { ShoppingCartService } from 'src/app/services/shopping-cart.service';
+import { AppState } from 'src/app/store/reducers/app.reducers';
 import { environment } from 'src/environments/environment';
+import * as actions from '../../store/actions/cart.actions'
 
 @Component({
   selector: 'app-movie-cart',
@@ -10,21 +14,27 @@ import { environment } from 'src/environments/environment';
 })
 export class MovieCartComponent implements OnInit, OnChanges, OnDestroy {
 
-  dataResults!: results[];
   urlImg: string = environment.imgUrl;
+  data: string[] = ['aa'];
+  dataResultsRedux!: results[];
+  subscription!: Subscription;
 
-  constructor(private cart: ShoppingCartService) {
+  constructor( private store: Store<AppState>) {
+    this.subscription =  this.store.select('cart').subscribe({
+      next: (value) => {
+        this.dataResultsRedux = value
+        console.log(value)
+      }
+    })
 
+   
    }
 
-  ngOnInit(): void {
-
-    this.cart.getCart().subscribe(data => this.dataResults = data)
-    
+  ngOnInit(): void {  
   }
 
   deleteItem(id: number){
-    this.cart.deleteItem(id)
+    this.store.dispatch(actions.deleteItem({id: id}))
   }
 
   ngOnChanges(changes: SimpleChanges): void {
@@ -32,7 +42,7 @@ export class MovieCartComponent implements OnInit, OnChanges, OnDestroy {
   }
 
   ngOnDestroy(): void {
-    
+    this.subscription.unsubscribe()
   }
 
 }

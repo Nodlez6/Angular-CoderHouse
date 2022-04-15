@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { Store } from '@ngrx/store';
 import { results } from 'src/app/interfaces/results';
 import { AuthService } from 'src/app/services/auth.service';
 import { ShoppingCartService } from 'src/app/services/shopping-cart.service';
+import { AppState } from 'src/app/store/reducers/app.reducers';
 
 @Component({
   selector: 'app-nav-bar',
@@ -13,10 +15,12 @@ export class NavBarComponent implements OnInit {
 
   cartData!: results[];
 
-  constructor(private routes: Router, private auth: AuthService, private cart: ShoppingCartService) { }
+  constructor(private routes: Router, private auth: AuthService, private store: Store<AppState>) { }
 
   ngOnInit(): void {
-    this.cart.getCart().subscribe(data => this.cartData = data);
+    this.store.select('cart').subscribe({
+      next: (value) => this.cartData = value,
+    })
   }
 
   Logout(){
@@ -24,8 +28,5 @@ export class NavBarComponent implements OnInit {
     this.routes.navigate(['/login'])
   }
 
-  prueba(){
-    console.log(this.cartData)
-  }
 
 }
