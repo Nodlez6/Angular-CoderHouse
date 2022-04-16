@@ -4,7 +4,6 @@ import { Store } from '@ngrx/store';
 import { Subscription } from 'rxjs';
 import { results } from 'src/app/interfaces/results';
 import { MovieApiService } from 'src/app/services/movie-api.service';
-import { ShoppingCartService } from 'src/app/services/shopping-cart.service';
 import { AppState } from 'src/app/store/reducers/app.reducers';
 import { environment } from 'src/environments/environment';
 import * as actions from '../../store/actions/cart.actions'
@@ -24,7 +23,7 @@ export class MovieScreenComponent implements OnInit, OnDestroy {
   ReduxCart!: results[];
 
 
-  constructor(private route: ActivatedRoute, private apiService: MovieApiService, private cart: ShoppingCartService, private store: Store<AppState>) { }
+  constructor(private route: ActivatedRoute, private apiService: MovieApiService, private store: Store<AppState>) { }
 
   ngOnInit(): void {
     this.subscriptionRedux = this.store.select('cart').subscribe({

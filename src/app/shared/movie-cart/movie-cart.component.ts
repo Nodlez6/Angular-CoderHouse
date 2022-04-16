@@ -2,7 +2,6 @@ import { Component, Input, OnChanges, OnDestroy, OnInit, SimpleChanges } from '@
 import { Store } from '@ngrx/store';
 import { Observable, Subscriber, Subscription } from 'rxjs';
 import { results } from 'src/app/interfaces/results';
-import { ShoppingCartService } from 'src/app/services/shopping-cart.service';
 import { AppState } from 'src/app/store/reducers/app.reducers';
 import { environment } from 'src/environments/environment';
 import * as actions from '../../store/actions/cart.actions'

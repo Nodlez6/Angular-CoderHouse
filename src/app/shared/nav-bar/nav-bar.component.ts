@@ -3,7 +3,6 @@ import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { results } from 'src/app/interfaces/results';
 import { AuthService } from 'src/app/services/auth.service';
-import { ShoppingCartService } from 'src/app/services/shopping-cart.service';
 import { AppState } from 'src/app/store/reducers/app.reducers';
 
 @Component({
